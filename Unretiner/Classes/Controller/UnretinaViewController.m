@@ -13,6 +13,7 @@
 static NSString* const kRetinaString = @"@2x";
 
 @synthesize checkBox;
+@synthesize saveSameCheckBox;
 
 #pragma mark - Initialisation
 
@@ -37,17 +38,19 @@ static NSString* const kRetinaString = @"@2x";
 
 // Retrieves a folder to save to
 - (NSURL*)getSaveFolder:(NSURL*)url {
-    NSOpenPanel *panel = [NSOpenPanel openPanel]; 
-    [panel setCanChooseDirectories:YES]; 
-    [panel setCanChooseFiles:NO];
-    [panel setAllowsMultipleSelection:NO];
-    [panel setDirectoryURL:url];
-    panel.prompt = @"Export Here";
-    panel.title = @"Select folder to save converted files.";
-    if ([panel runModal] == NSOKButton) {
-        // Got it, return the URL
-        return [panel URL];
-    }
+
+        NSOpenPanel *panel = [NSOpenPanel openPanel]; 
+        [panel setCanChooseDirectories:YES]; 
+        [panel setCanChooseFiles:NO];
+        [panel setAllowsMultipleSelection:NO];
+        [panel setDirectoryURL:url];
+        panel.prompt = @"Export Here";
+        panel.title = @"Select folder to save converted files.";
+        if ([panel runModal] == NSOKButton) {
+            // Got it, return the URL
+            return [panel URL];
+        }
+
     
     return nil;
 }
@@ -88,8 +91,10 @@ static NSString* const kRetinaString = @"@2x";
         if (![self isDirectory:firstUrl]) {
             firstUrl = [firstUrl URLByDeletingLastPathComponent];
         }
-        NSURL* savePath = [self getSaveFolder:firstUrl];
-            
+        NSURL* savePath = firstUrl;
+        if(![[self saveSameCheckBox] state]){
+            savePath = [self getSaveFolder:firstUrl];
+        }
         if (savePath) {
             // Arrays to store warnings and errors
             NSMutableArray* errors = [NSMutableArray array];
@@ -130,11 +135,11 @@ static NSString* const kRetinaString = @"@2x";
     // Select the files to convert
 	NSOpenPanel *panel = [NSOpenPanel openPanel]; 
 	[panel setCanChooseDirectories:YES]; 
-	[panel setCanChooseFiles:YES];
+	[panel setCanChooseFiles:NO];
 	[panel setAllowsMultipleSelection:YES];
 	[panel setDelegate:self];
 	[panel setCanCreateDirectories:YES];
-	panel.title = @"Select your retina files";
+	panel.title = @"Select the folder containing your retina files";
     if ([panel runModal] == NSOKButton) {
         // Success, process all the files
         [self unretinaUrls:panel.URLs];
