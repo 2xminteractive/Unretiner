@@ -1,6 +1,8 @@
 Unretiner from [Mac App Store](http://itunes.apple.com/us/app/unretiner/id411277085?mt=12)
 
-Please fork and improve :)
+* Added support for converting non @2x file
+* Removed support for -hd files (don't make sense for us and with the @2x improvement)
+
 
 TODO
 ----
