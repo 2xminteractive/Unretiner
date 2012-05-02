@@ -41,6 +41,16 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
+					<object class="NSCustomView" id="38194497">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{0, 30}, {480, 240}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="935938549"/>
+						<string key="NSReuseIdentifierKey">_NS:499</string>
+						<string key="NSClassName">NSDroppableView</string>
+					</object>
 					<object class="NSTextField" id="73450366">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">256</int>
@@ -191,16 +201,6 @@
 						</object>
 						<bool key="NSEditable">YES</bool>
 					</object>
-					<object class="NSCustomView" id="38194497">
-						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{0, 30}, {480, 240}}</string>
-						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="935938549"/>
-						<string key="NSReuseIdentifierKey">_NS:499</string>
-						<string key="NSClassName">NSDroppableView</string>
-					</object>
 				</array>
 				<string key="NSFrameSize">{480, 270}</string>
 				<reference key="NSSuperview"/>
@@ -293,8 +293,8 @@
 							<reference ref="611662926"/>
 							<reference ref="557719149"/>
 							<reference ref="935938549"/>
-							<reference ref="38194497"/>
 							<reference ref="617289415"/>
+							<reference ref="38194497"/>
 							<reference ref="73450366"/>
 						</array>
 						<reference key="parent" ref="0"/>
