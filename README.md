@@ -14,4 +14,3 @@ Requested Features
 * Automatically watch a folder and convert instantly / Applescript Support
 * Add better resizing algorithms
 * Sharpness filter
-* Option to save to same folder without prompt
