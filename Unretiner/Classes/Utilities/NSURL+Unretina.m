@@ -21,7 +21,7 @@ static NSString* const kHdString = @"-hd";
         NSMutableString *afileName = [[lastComponent stringByDeletingPathExtension] mutableCopy];
         [afileName appendFormat:@"@2x.%@",pathExtension];
         NSString* copyURL = [NSString stringWithFormat:@"%@%@", [folder relativeString], afileName];
-        NSLog(@"%@",copyURL);
+        [afileName release];
         NSError *error;
         [[NSFileManager defaultManager] copyItemAtURL:self toURL:[NSURL URLWithString:copyURL] error:&error];
         
